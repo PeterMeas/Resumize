@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Welcome to Resumize</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Build and tailor your resume with AI-powered tools.
         </p>
         <a
           className="App-link"
