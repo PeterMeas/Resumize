@@ -40,6 +40,17 @@ function App() {
             Transform your resume to match any job description with intelligent optimization
           </p>
           <button className="cta-button">Get Started</button>
+          <footer className="footer"> 
+            <div className = "footer-content">
+              <div className = "footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact Us</a>
+              </div>
+              <div className = "footer-social">
+                <a href="https://github.com/PeterMeas/resumize">Github</a>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
