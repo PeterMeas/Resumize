@@ -1,6 +1,15 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  // State to track if dark mode is active
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  // Function to toggle between dark and light mode
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <div className="App">
      
@@ -8,14 +17,16 @@ function App() {
         <nav className="nav">
          
           <div className="nav-left">
-            <button className="nav-button">Resumize</button>
-            <button className="nav-button">About</button>
-            <button className="nav-button">Builder</button>
-            <button className="nav-button">Analyzer</button>
+            <a href="/" className="nav-brand">Resumize</a>
+            <a href="#about" className="nav-link">About</a>
+            <a href="#builder" className="nav-link">Builder</a>
+            <a href="#analyzer" className="nav-link">Analyzer</a>
           </div>
           
           <div className="nav-right">
-            <button className="nav-button">Theme</button>
+            <button className="theme-button" onClick={toggleTheme}>
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
             <button className="nav-button">Login</button>
           </div>
         </nav>
