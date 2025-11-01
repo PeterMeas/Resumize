@@ -48,7 +48,7 @@ function App() {
               <Link to="/contact">Contact Us</Link>
             </div>
             <div className="footer-social">
-              <a href="https://github.com/PeterMeas/resumize" target="_blank" rel="noopener noreferrer">Github</a>
+              <a href="https://github.com/PeterMeas/resumize" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
             <p className="footer-copyright">&copy; 2025 Resumize. All rights reserved.</p>
           </div>
