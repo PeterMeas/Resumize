@@ -44,8 +44,8 @@ function App() {
         <footer className="footer"> 
           <div className="footer-content">
             <div className="footer-links">
-              <a href="#about">About</a>
-              <a href="#contact">Contact Us</a>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact Us</Link>
             </div>
             <div className="footer-social">
               <a href="https://github.com/PeterMeas/resumize" target="_blank" rel="noopener noreferrer">Github</a>
