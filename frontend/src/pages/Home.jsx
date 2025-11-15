@@ -1,10 +1,84 @@
 import './Home.css';
+import React, { useState, useEffect } from 'react';
+import ParticleBackground from '../components/ParticleBackground';
+
+// Typing headline component
+function TypingHeadline() {
+  const lines = ['YOUR', 'CAREER', 'COMMAND', 'CENTER.'];
+  const [typed, setTyped] = useState(Array(lines.length).fill(''));
+  const [currentLine, setCurrentLine] = useState(0);
+
+  useEffect(() => {
+    let lineIdx = 0;
+    let charIdx = 0;
+    let timeoutId;
+
+    function typeNext() {
+      if (lineIdx >= lines.length) return;
+
+      const current = lines[lineIdx];
+      if (charIdx <= current.length) {
+        setTyped(prev => {
+          const copy = [...prev];
+          copy[lineIdx] = current.slice(0, charIdx);
+          return copy;
+        });
+        setCurrentLine(lineIdx);
+        charIdx += 1;
+        timeoutId = setTimeout(typeNext, 80);
+      } else {
+        // move to next line after short pause
+        lineIdx += 1;
+        charIdx = 0;
+        timeoutId = setTimeout(typeNext, 300);
+      }
+    }
+
+    typeNext();
+    return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <>
+      {typed.map((t, i) => (
+        <span key={i} className="typing-line">
+          {t}
+          {i === currentLine && <span className="typing-cursor" />}
+          <br />
+        </span>
+      ))}
+    </>
+  );
+}
 
 function Home() {
   return (
     <div className="home">
       {/* Hero Section */}
       <section className="hero-section">
+        <ParticleBackground />
+
+        {/* Decorative command-center HUD behind the content */}
+        <div className="command-hud" aria-hidden="true">
+          <div className="hud-panel hud-top-left">
+            <div className="hud-title">SYSTEM</div>
+            <div className="hud-value">OK</div>
+          </div>
+
+          <div className="hud-panel hud-top-right">
+            <div className="hud-title">ATS MATCH</div>
+            <div className="hud-value">72%</div>
+          </div>
+
+          <div className="hud-floating hud-center-left">
+            <div className="hud-line">RESUME ANALYSIS</div>
+            <div className="hud-mini">last scan: 2m ago</div>
+          </div>
+
+          <div className="hud-scanline" />
+        </div>
+
         <div className="container">
           <div className="hero-content">
             {/* Small badge */}
@@ -12,12 +86,9 @@ function Home() {
               <span className="badge badge-indigo">AI-POWERED CAREER TOOL</span>
             </div>
 
-            {/* HUGE Brutal Headline */}
+            {/* HUGE Brutal Headline (animated) */}
             <h1 className="hero-title">
-              YOUR<br />
-              CAREER<br />
-              COMMAND<br />
-              CENTER.
+              <TypingHeadline />
             </h1>
 
             {/* Subheadline */}

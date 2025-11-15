@@ -129,8 +129,11 @@ body {
   width: 100%;
   height: var(--header-height);
   padding: 0 var(--space-8);
-  background: #000000;
-  border-bottom: 2px solid var(--color-white);
+  background: linear-gradient(180deg, rgba(10,10,12,0.35), rgba(10,10,12,0.25));
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 24px rgba(2,6,23,0.6);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -171,46 +174,51 @@ body {
 /* Nav Links - All Caps, Spaced, Monospace */
 .nav-link-brutal {
   font-family: var(--font-mono);
-  color: var(--color-gray-300);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   font-size: var(--text-sm);
-  font-weight: var(--font-bold);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.08em;
   position: relative;
-  padding-bottom: 0.5rem;
-  transition: color var(--transition-base);
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: color var(--transition-base), background var(--transition-base), transform 160ms ease;
 }
 
 .nav-link-brutal:hover {
-  color: var(--color-white);
+  color: var(--color-primary);
+  background: rgba(99,102,241,0.06);
+  transform: translateY(-2px);
 }
 
-/* Thick underline on hover */
+/* thin underline animation */
 .nav-link-brutal::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 4px;
-  background: var(--color-white);
-  transition: width 0.3s ease;
+  bottom: 6px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: transparent;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 220ms cubic-bezier(0.2,0.9,0.2,1), background 220ms;
 }
 
 .nav-link-brutal:hover::after {
-  width: 100%;
+  transform: scaleX(1);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
 }
 
-/* Active link - Red underline */
+/* Active link */
 .nav-link-brutal.active {
-  color: var(--color-white);
+  color: var(--color-primary);
 }
 
 .nav-link-brutal.active::after {
-  width: 100%;
-  background: var(--color-accent);
-  height: 4px;
+  transform: scaleX(1);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
 }
 
 /* Theme toggle - Square, no border radius */
@@ -237,27 +245,28 @@ body {
 
 /* Login button - Sharp corners */
 .nav-button {
-  background: transparent;
+  background: linear-gradient(90deg, rgba(99,102,241,0.12), rgba(99,102,241,0.08));
   color: var(--color-white);
-  border: 2px solid var(--color-white);
-  padding: var(--space-2) var(--space-6);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 18px;
   font-size: var(--text-sm);
-  font-weight: var(--font-black);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wider);
-  border-radius: 0;
+  letter-spacing: var(--tracking-wide);
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: transform 120ms ease, box-shadow 160ms ease;
   font-family: var(--font-display);
+  box-shadow: 0 6px 18px rgba(79,70,229,0.08);
 }
 
 .nav-button:hover {
-  background: var(--color-white);
-  color: var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-indigo);
 }
 
 .nav-button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
 /* ========== MAIN CONTENT ========== */

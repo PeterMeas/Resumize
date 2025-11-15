@@ -18,22 +18,21 @@ function App() {
     <Router>
       <div className="App">
         <header className="header">
-  <nav className="nav">
-    <div className="nav-left">
-      <Link to="/" className="nav-brand">RESUMIZE</Link>
-      <Link to="/" className="nav-link-brutal active">HOME</Link>
-      <Link to="/about" className="nav-link-brutal">ABOUT</Link>
-      <Link to="/builder" className="nav-link-brutal">BUILD</Link>
-      <Link to="/analyzer" className="nav-link-brutal">ANALYZE</Link>
-    </div>
-    
-    <div className="nav-right">
-      <button className="theme-button" onClick={toggleTheme}>
-        {isDarkMode ? '☀️' : '🌙'}
-      </button>
-      <button className="nav-button">LOGIN</button>
-    </div>
-  </nav>
+        <nav className="nav">
+          <div className="nav-left">
+            <Link to="/" className="nav-brand">RESUMIZE</Link>
+            <Link to="/" className="nav-link-brutal active">HOME</Link>
+            <Link to="/about" className="nav-link-brutal">ABOUT</Link>
+            <Link to="/builder" className="nav-link-brutal">BUILD</Link>
+            <Link to="/analyzer" className="nav-link-brutal">ANALYZE</Link>
+          </div>
+        <div className="nav-right">
+          <button className="theme-button" onClick={toggleTheme}>
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
+          <button className="nav-button">LOGIN</button>
+        </div>
+      </nav>
 </header>
 
         <Routes>
