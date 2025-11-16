@@ -7,12 +7,6 @@ import Builder from './pages/Builder';
 import Analyzer from './pages/Analyzer';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
   return (
     <main>
     <Router>
@@ -27,9 +21,6 @@ function App() {
             <Link to="/analyzer" className="nav-link-brutal">ANALYZE</Link>
           </div>
         <div className="nav-right">
-          <button className="theme-button" onClick={toggleTheme}>
-            {isDarkMode ? '☀️' : '🌙'}
-          </button>
           <button className="nav-button">LOGIN</button>
         </div>
       </nav>
