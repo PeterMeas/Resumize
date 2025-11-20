@@ -1,8 +1,5 @@
 # Resumize
 
-
-![gg](https://github.com/user-attachments/assets/7b3739f9-ff42-4122-95f8-b42d81aae985)
-
 ## 🚀 Project Status: In Development (Frontend Phase)
 
 ## 📋 Development Roadmap
